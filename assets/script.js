@@ -3,6 +3,8 @@
  * Dots à chaque image / dot rempli sur la bonne image. ex : img2 = dot 2 rempli
  * flèche sur le coté
  * 
+ * setattribute a modifier
+ * 
  ** Demarche
  * Utilisation d'event listener click sur chaque fleche
  * Au click on passe à l'autre image, le dot change également
@@ -14,6 +16,21 @@ on affiche la dernière image ;
 le point sélectionné est le dernier. 
 Dans tous les cas, le texte change en accord avec l’image montrée.
  */
+
+
+let flecheGauche = document.querySelector("#banner .arrow_left");
+flecheGauche.addEventListener("click", ()=> {
+	console.log("A g toute !")
+
+})
+
+
+let flecheDroite = document.querySelector("#banner .arrow_right");
+flecheDroite.addEventListener("click", ()=> {
+	console.log("A droite toute !")
+
+})
+
 
 
 const slides = [
@@ -34,5 +51,4 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
-
 
