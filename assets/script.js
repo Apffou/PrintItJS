@@ -36,7 +36,47 @@ Dans tous les cas, le texte change en accord avec l’image montrée.
 const BaliseImg = document.querySelector("#banner .banner-img")
 const BaliseDescription = document.querySelector("#banner p")
 const Dots = document.querySelector("#banner .dots")
+let index = 0
 
+const slides = [
+	{
+		"image":"./assets/images/slideshow/slide1.jpg",
+		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
+	},
+	{
+		"image":"slide2.jpg",
+		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
+	},
+	{
+		"image":"slide3.jpg",
+		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
+	},
+	{
+		"image":"slide4.png",
+		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
+	}
+]
+
+//création d'un dot
+//Dots.classList.add("dot")
+
+//Boucler sur le tableau 
+
+for (let i = 0; i < slides.length; i = i + 1 ) {
+	let DivDot = document.createElement ("div")
+	Dots.appendChild(DivDot)
+	console.log(slides.length)
+}
+
+// Dot selectionné 
+
+
+
+// INteraction sur flèches
+
+function test () {
+
+}
 
 // Evenement clique à gauche
 
@@ -53,22 +93,4 @@ flecheDroite.addEventListener("click", ()=> {
 
 })
 
-const slides = [
-	{
-		"image":"slide1.jpg",
-		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
-	},
-	{
-		"image":"slide2.jpg",
-		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
-	},
-	{
-		"image":"slide3.jpg",
-		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
-	},
-	{
-		"image":"slide4.png",
-		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
-	}
-]
 
