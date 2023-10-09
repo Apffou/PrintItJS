@@ -57,18 +57,19 @@ const slides = [
 	}
 ]
 
-//création d'un dot
-//Dots.classList.add("dot")
+
 
 //Boucler sur le tableau 
 
 for (let i = 0; i < slides.length; i = i + 1 ) {
-	let DivDot = document.createElement ("div")
+	const DivDot = document.createElement ("div")
+	DivDot.classList.add("dot")
+	if (i === 0){
+		DivDot.classList.add("dot_selected")
+	}
 	Dots.appendChild(DivDot)
 	console.log(slides.length)
 }
-
-// Dot selectionné 
 
 
 
