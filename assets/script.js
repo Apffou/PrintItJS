@@ -14,11 +14,6 @@
  *    Mettre en function() le code commun des deux flèches -- 15'
  * --- Vraiment terminé  --- 2h10
  
- * Souhait client : 
- * Boucle à l'infini 
- * Dots à chaque image / dot rempli sur la bonne image. ex : img2 = dot 2 rempli
- * flèche sur le coté
- * 
  * setattribute a modifier
  * 
  ** Demarche
@@ -32,11 +27,15 @@ le point sélectionné est le dernier.
 Dans tous les cas, le texte change en accord avec l’image montrée.
  */
 
+
+//recupere le bon objet
+
+
 // déclaration des constantes
 const BaliseImg = document.querySelector("#banner .banner-img")
 const BaliseDescription = document.querySelector("#banner p")
 const Dots = document.querySelector("#banner .dots")
-let index = 0
+let carousel_etape = 0
 
 const slides = [
 	{
@@ -44,19 +43,18 @@ const slides = [
 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
 	},
 	{
-		"image":"slide2.jpg",
+		"image":"./assets/images/slideshow/slide2.jpg",
 		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
 	},
 	{
-		"image":"slide3.jpg",
+		"image":"./assets/images/slideshow/slide3.jpg",
 		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
 	},
 	{
-		"image":"slide4.png",
+		"image":"./assets/images/slideshow/slide4.png",
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
-
 
 
 //Boucler sur le tableau 
@@ -83,6 +81,8 @@ function test () {
 
 const flecheGauche = document.querySelector("#banner .arrow_left");
 flecheGauche.addEventListener("click", ()=> {
+
+
 	console.log("A gauche toute !")
 
 })
@@ -90,8 +90,29 @@ flecheGauche.addEventListener("click", ()=> {
 
 const flecheDroite = document.querySelector("#banner .arrow_right");
 flecheDroite.addEventListener("click", ()=> {
-	console.log("A droite toute !")
+	let AjoutDotSelection = document.querySelector(".dot.dot_selected")
+	AjoutDotSelection.classList.remove("dot_selected")
+	console.log(AjoutDotSelection)
 
+	carousel_etape++
+	let position_dot = carousel_etape +1
+	let CurrentDot = document.querySelector(".dots .dot:nth-child("+position_dot+")")
+	CurrentDot.classList.add("dot_selected")
+	let toto = slides.image
+	BaliseImg.src = slides[carousel_etape].image;
+	BaliseDescription.innerHTML = slides[carousel_etape].tagLine;
+	console.log(CurrentDot)
+
+
+
+
+//	slides.forEach((item, index) => {
+//		console.log(item)
+//		console.log(index)
+
+
+
+	//})
 })
 
 
