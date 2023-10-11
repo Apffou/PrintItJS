@@ -36,13 +36,16 @@ for (let i = 0; i < slides.length; i = i + 1 ) {
 	console.log(slides.length)
 }
 
+// Fonction 
 
 function updateCarousel () {
 	let AjoutDotSelection = document.querySelector(".dot.dot_selected")
 	AjoutDotSelection.classList.remove("dot_selected")
+	//condition pour aller de la première slide à la derniere slide 
 	if (  carousel_etape < 0) {
 		carousel_etape =  slides.length -1 ;
 	}
+	// condition pour passer de la fin du carrousel au debut du carrousel
 	if (  carousel_etape > slides.length -1) {
 		carousel_etape = 0 ;
 	}
