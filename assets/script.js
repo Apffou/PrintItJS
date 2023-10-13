@@ -1,7 +1,7 @@
 
 // déclaration des constantes
-const BaliseImg = document.querySelector("#banner .banner-img")
-const BaliseDescription = document.querySelector("#banner p")
+const baliseImg = document.querySelector("#banner .banner-img");
+const baliseDescription = document.querySelector("#banner p");
 let carousel_etape = 0
 
 const slides = [
@@ -25,22 +25,22 @@ const slides = [
 
 //Boucler sur le tableau 
 
-const Dots = document.querySelector("#banner .dots")
+const dots = document.querySelector("#banner .dots");
 for (let i = 0; i < slides.length; i = i + 1 ) {
-	const DivDot = document.createElement ("div")
-	DivDot.classList.add("dot")
+	const divDot = document.createElement("div");
+	divDot.classList.add("dot");
 	if (i === 0){
-		DivDot.classList.add("dot_selected")
+		divDot.classList.add("dot_selected");
 	}
-	Dots.appendChild(DivDot)
+	dots.appendChild(divDot);
 	console.log(slides.length)
 }
 
 // Fonction 
 
 function updateCarousel () {
-	let AjoutDotSelection = document.querySelector(".dot.dot_selected")
-	AjoutDotSelection.classList.remove("dot_selected")
+	let ajoutDotSelection = document.querySelector(".dot.dot_selected");
+	ajoutDotSelection.classList.remove("dot_selected");
 	//condition pour aller de la première slide à la derniere slide 
 	if (  carousel_etape < 0) {
 		carousel_etape =  slides.length -1 ;
@@ -49,12 +49,13 @@ function updateCarousel () {
 	if (  carousel_etape > slides.length -1) {
 		carousel_etape = 0 ;
 	}
+	// La dot selectionné se place automatiquement
 	let position_dot = carousel_etape +1
-	let CurrentDot = document.querySelector(".dots .dot:nth-child("+position_dot+")")
-	CurrentDot.classList.add("dot_selected")
+	let currentDot = document.querySelector(".dots .dot:nth-child("+position_dot+")");
+	currentDot.classList.add("dot_selected");
 	// Accès aux valeurs de l'objet
-	BaliseImg.src = slides[carousel_etape].image;
-	BaliseDescription.innerHTML = slides[carousel_etape].tagLine;
+	baliseImg.src = slides[carousel_etape].image;
+	baliseDescription.innerHTML = slides[carousel_etape].tagLine;
 }
 
 // Evenement clique à droite
